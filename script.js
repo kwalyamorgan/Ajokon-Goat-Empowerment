@@ -40,9 +40,21 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.card, .profile, .step').forEach(el => {
+document.querySelectorAll('.card, .profile, .step, .donate-card').forEach(el => {
     el.style.opacity = "0";
     el.style.transform = "translateY(30px)";
     el.style.transition = "all 0.6s ease-out";
     observer.observe(el);
 });
+
+// Donate via M-Pesa
+function donateViaMpesa() {
+    let amount = prompt("Enter donation amount in KES (e.g., 100):");
+    if (amount && !isNaN(amount) && amount > 0) {
+        let recipient = "0702037855";
+        let ussd = `*334*1*${amount}*${recipient}#`;
+        window.location.href = `tel:${ussd}`;
+    } else {
+        alert("Please enter a valid amount.");
+    }
+}

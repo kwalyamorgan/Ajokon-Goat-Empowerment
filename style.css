@@ -387,6 +387,61 @@ nav {
     margin: 0;
 }
 
+/* Donation button styling */
+.contact-item button {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* Donate Section */
+.donate-section {
+    background: linear-gradient(135deg, var(--light-grey), #f0f8f0);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.donate-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.donate-card {
+    background: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 1px solid rgba(46, 125, 50, 0.1);
+    transition: all 0.3s ease;
+}
+
+.donate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.2);
+}
+
+.donate-card i {
+    font-size: 3rem;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+.donate-card h3 {
+    font-size: 1.5rem;
+    color: var(--dark-grey);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.donate-card p {
+    color: var(--dark-grey);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.donate-card .btn-primary {
+    margin: 0;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     #nav-menu { display: none; }
@@ -397,4 +452,51 @@ nav {
     .step { flex-direction: row !important; text-align: left !important; }
     .step-content { text-align: left !important; }
     .step-num { margin: 0 1rem 0 0; }
+    .implementation-grid { grid-template-columns: 1fr; }
+}
+
+/* Implementation Section */
+.implementation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.impl-item {
+    background: var(--light-grey);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 1px solid rgba(46, 125, 50, 0.1);
+    border-top: 4px solid var(--primary-green);
+}
+
+.impl-item:hover {
+    transform: translateY(-10px);
+    background: linear-gradient(135deg, #eef2ee, #f0f8f0);
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.2);
+}
+
+.impl-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: 0.3s;
+}
+
+.impl-item:hover img {
+    transform: scale(1.05);
+}
+
+.impl-item h3 {
+    font-size: 1.1rem;
+    color: var(--dark-grey);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 0.5rem;
 }
