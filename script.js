@@ -4,20 +4,27 @@ const navMenu = document.getElementById('nav-menu');
 
 menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
-    // Basic CSS toggle for visibility in JS
-    if (navMenu.style.display === "flex") {
-        navMenu.style.display = "none";
-    } else {
-        navMenu.style.display = "flex";
-        navMenu.style.flexDirection = "column";
-        navMenu.style.position = "absolute";
-        navMenu.style.top = "70px";
-        navMenu.style.left = "0";
-        navMenu.style.width = "100%";
-        navMenu.style.background = "#fff";
-        navMenu.style.padding = "20px";
-    }
 });
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+    });
+});
+
+// Mobile touch enhancements
+if ('ontouchstart' in window) {
+    // Add touch feedback for interactive elements
+    document.querySelectorAll('.card, .impact-card, .btn-primary, .btn-secondary, .copy-btn').forEach(el => {
+        el.addEventListener('touchstart', () => {
+            el.style.transform = 'scale(0.98)';
+        });
+        el.addEventListener('touchend', () => {
+            el.style.transform = '';
+        });
+    });
+}
 
 // Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
