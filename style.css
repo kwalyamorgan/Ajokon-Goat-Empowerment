@@ -853,9 +853,9 @@ nav {
 
 .profile img { 
     width: 200px; 
-    height: 250px; 
+    height: 200px; 
     border-radius: 50%; 
-    object-fit: contain; 
+    object-fit: cover; 
     margin-bottom: 1rem; 
     border: 3px solid var(--light-grey); 
     transition: 0.3s;
@@ -865,6 +865,12 @@ nav {
 .profile:hover img {
     border-color: var(--primary-green);
     transform: scale(1.05);
+}
+
+/* Founder profile - larger size */
+.founder-profile img {
+    width: 250px;
+    height: 250px;
 }
 
 /* Model Steps */
