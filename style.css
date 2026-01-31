@@ -69,6 +69,12 @@ nav {
 .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-green); }
 .logo span { color: var(--accent-gold); }
 
+.logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
 #nav-menu { display: flex; list-style: none; }
 #nav-menu li a { 
     text-decoration: none; 
@@ -83,13 +89,14 @@ nav {
 /* Hero */
 .hero {
     height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1524024973431-2ad916746881?auto=format&fit=crop&w=1200&q=80');
+    background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     text-align: center;
-    color: var(--white);
+    color: white;
     position: relative;
 }
 
@@ -100,7 +107,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(212, 163, 115, 0.1));
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
@@ -110,6 +117,22 @@ nav {
     position: relative; 
     z-index: 2;
     animation: fadeInUp 1s ease-out;
+}
+
+/* Slogan Section */
+.slogan-section {
+    background: var(--light-grey);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.slogan-img {
+    max-width: 80%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 @keyframes fadeInUp {
@@ -200,6 +223,108 @@ nav {
 .card:hover i {
     transform: scale(1.1);
     color: #4caf50;
+}
+
+/* About Content */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+}
+
+.about-content h3 {
+    color: var(--primary-green);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.about-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-content li {
+    margin-bottom: 0.5rem;
+}
+
+.about-content em {
+    font-style: italic;
+    color: var(--dark-grey);
+}
+
+/* Flagship Project Background */
+.flagship-project {
+    background-image: url('https://images.unsplash.com/photo-1524024973431-2ad916746881?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    position: relative;
+    color: white;
+}
+
+.flagship-project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    z-index: 1;
+}
+
+.flagship-project h3, .flagship-project p, .flagship-project ul, .flagship-project li {
+    position: relative;
+    z-index: 2;
+}
+
+.flagship-project h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.flagship-project strong {
+    color: var(--accent-gold);
+}
+
+.flagship-project em {
+    color: var(--accent-gold);
+    font-style: italic;
+}
+
+/* Model Description */
+.model-description {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+}
+
+.model-description h3 {
+    color: var(--primary-green);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.model-description ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.model-description li {
+    margin-bottom: 0.5rem;
+}
+
+.model-description em {
+    font-style: italic;
+    color: var(--dark-grey);
 }
 
 /* SDGs */
@@ -438,8 +563,56 @@ nav {
     margin-bottom: 2rem;
 }
 
-.donate-card .btn-primary {
-    margin: 0;
+.donate-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.donate-option h4 {
+    font-size: 1.2rem;
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.donate-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#mpesa-number1, #mpesa-number2, #equity-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-green);
+    background: var(--light-grey);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(46, 125, 50, 0.2);
+}
+
+.copy-btn {
+    background: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: #1b5e20;
+}
+
+.copy-feedback {
+    color: var(--primary-green);
+    font-weight: bold;
+    display: none;
 }
 
 /* Responsive */

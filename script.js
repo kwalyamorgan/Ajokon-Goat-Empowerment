@@ -48,13 +48,17 @@ document.querySelectorAll('.card, .profile, .step, .donate-card').forEach(el => 
 });
 
 // Donate via M-Pesa
-function donateViaMpesa() {
-    let amount = prompt("Enter donation amount in KES (e.g., 100):");
-    if (amount && !isNaN(amount) && amount > 0) {
-        let recipient = "0702037855";
-        let ussd = `*334*1*${amount}*${recipient}#`;
-        window.location.href = `tel:${ussd}`;
-    } else {
-        alert("Please enter a valid amount.");
-    }
+function copyNumber(id) {
+    const number = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(number).then(() => {
+        const feedback = document.getElementById('copy-feedback');
+        feedback.textContent = 'Copied!';
+        feedback.style.display = 'block';
+        setTimeout(() => {
+            feedback.style.display = 'none';
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+        alert('Failed to copy number. Please copy manually.');
+    });
 }
