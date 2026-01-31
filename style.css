@@ -89,6 +89,12 @@ body {
     text-shadow: 0 2px 4px rgba(46, 125, 50, 0.2);
 }
 
+/* Impact Section Title */
+#impact .section-title h2 {
+    color: #ff9800;
+    text-shadow: 0 2px 4px rgba(255, 152, 0, 0.3);
+}
+
 .section-title p {
     font-size: 1rem;
     color: var(--dark-grey);
@@ -193,7 +199,6 @@ nav {
     position: relative;
     z-index: 2;
     animation: heroSlideIn 1.2s ease-out;
-}
 }
 
 @keyframes heroSlideIn {
@@ -1535,9 +1540,17 @@ nav {
         text-align: center;
     }
 
+    /* Impact Section Title */
+    #impact .section-title h2 {
+        color: #ff9800;
+        text-shadow: 0 2px 4px rgba(255, 152, 0, 0.3);
+    }
+
     .section-title p {
         font-size: 0.9rem;
         text-align: center;
+        padding: 0 1rem;
+        margin: 0.5rem 0;
     }
 
     /* About Content */
@@ -1736,6 +1749,17 @@ nav {
 
     .section-title h2 {
         font-size: 1.8rem;
+    }
+
+    #impact .section-title h2 {
+        color: #ff9800;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .section-title p {
+        font-size: 0.8rem;
+        padding: 0 0.8rem;
+        margin: 0.5rem 0;
     }
 
     .impact-number {
