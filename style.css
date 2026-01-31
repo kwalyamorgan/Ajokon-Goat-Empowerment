@@ -852,13 +852,14 @@ nav {
 }
 
 .profile img { 
-    width: 180px; 
-    height: 180px; 
-    border-radius: 50%; 
-    object-fit: cover; 
+    width: 200px; 
+    height: 250px; 
+    border-radius: 10px; 
+    object-fit: contain; 
     margin-bottom: 1rem; 
-    border: 5px solid var(--light-grey); 
+    border: 3px solid var(--light-grey); 
     transition: 0.3s;
+    background-color: #f8f9fa;
 }
 
 .profile:hover img {
