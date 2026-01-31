@@ -15,9 +15,10 @@
         </div>
         <ul id="nav-menu">
             <li><a href="#about">About</a></li>
+            <li><a href="#impact">Impact</a></li>
             <li><a href="#model">The Model</a></li>
             <li><a href="#implementation">Implementation</a></li>
-            <li><a href="#sdgs">Impact</a></li>
+            <li><a href="#sdgs">SDGs</a></li>
             <li><a href="#team">Team</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#donate">Donate</a></li>
@@ -55,6 +56,9 @@
             <h3>Who We Are</h3>
             <p><strong>Ajokon Community Empowerment Organization (ACEO)</strong> is a community-based organization rooted in indigenous practices of mutual support and asset sharing in Amuria, Uganda. We work to strengthen <em>household financial security and community resilience</em> through culturally grounded, asset-based, and community-led empowerment initiatives.</p>
             <p>ACEO believes that lasting change begins with <em>security, dignity, and collective responsibility</em> — not short-term handouts.</p>
+            
+            <h3>What Ajokon Means</h3>
+            <p>Ajokon is an Ateso (Iteso) cultural practice that refers to sharing or entrusting livestock to another household so that both families benefit over time.</p>
             
             <h3>Our Vision</h3>
             <p><em>A resilient and self-reliant community where households are financially secure, supported by strong social networks and sustainable livelihoods.</em></p>
@@ -125,6 +129,35 @@
         </div>
     </section>
 
+    <section id="impact" class="impact-section container">
+        <div class="section-title">
+            <h2>Our Impact</h2>
+            <p>Real numbers, real change in Amuria communities.</p>
+        </div>
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="impact-number" data-target="500">0</div>
+                <h3>Families Empowered</h3>
+                <p>Households participating in AGEP</p>
+            </div>
+            <div class="impact-card">
+                <div class="impact-number" data-target="1200">0</div>
+                <h3>Goats Distributed</h3>
+                <p>Productive assets provided</p>
+            </div>
+            <div class="impact-card">
+                <div class="impact-number" data-target="85">0</div>
+                <h3>% Financial Security</h3>
+                <p>Increase in household resilience</p>
+            </div>
+            <div class="impact-card">
+                <div class="impact-number" data-target="300">0</div>
+                <h3>Community Members</h3>
+                <p>Trained in livestock management</p>
+            </div>
+        </div>
+    </section>
+
     <section id="model" class="model-section container">
         <div class="section-title">
             <h2>The Ajokon Plus Model</h2>
@@ -181,8 +214,8 @@
                 <h3>1. Identification of beneficiaries and vetting them according to criteria</h3>
             </div>
             <div class="impl-item">
-                <img src="2.jpeg" alt="Recruitment and alignment meeting">
-                <h3>2. Recruitment and alignment meeting</h3>
+                <img src="2.jpeg" alt="The beneficiaries head committee chosen to head the project">
+                <h3>2. The beneficiaries head committee chosen to head the project</h3>
             </div>
             <div class="impl-item">
                 <img src="3.jpeg" alt="Goats bought treated and tagged">
@@ -197,20 +230,20 @@
                 <h3>5. Goats distributed to upto 20 beneficiaries</h3>
             </div>
             <div class="impl-item">
-                <img src="6.jpeg" alt="AGEP savings sacco formed">
-                <h3>6. AGEP savings sacco formed headed by the beneficiaries head committee</h3>
+                <img src="6.jpeg" alt="The chairperson of the Beneficiaries head committee encouraging cooperation amongst fellow beneficiaries for the good of the organization">
+                <h3>6. The chairperson of the Beneficiaries head committee encouraging cooperation amongst fellow beneficiaries for the good of the organization</h3>
             </div>
             <div class="impl-item">
                 <img src="7.jpeg" alt="Project monitoring team">
-                <h3>7. Project monitoring team for visits chosen amongst the beneficiaries themselves</h3>
+                <h3>7. Handover</h3>
             </div>
         </div>
     </section>
 
     <section id="team" class="container team-section">
         <div class="section-title">
-            <h2>Project Leadership</h2>
-            <p>Leading the implementation of Phase 1 in December 2025.</p>
+            <h2>Meet our team</h2>
+            <p>Dedicated individuals driving ACEO's mission forward.</p>
         </div>
         <div class="team-grid">
             <div class="profile">
@@ -239,8 +272,13 @@
             </div>
             <div class="contact-item">
             <i class="fas fa-phone"></i>
-            <h3>Phone</h3>
+            <h3>Phone (Kenya)</h3>
             <p><a href="tel:+254702037855" style="color: #007bff; text-decoration: none;">+254 702 037 855</a></p>
+            </div>
+            <div class="contact-item">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Phone (Uganda)</h3>
+            <p><a href="tel:+256777853354" style="color: #007bff; text-decoration: none;">+256 777 853 354</a></p>
             </div>
         </div>
     </section>
@@ -260,25 +298,27 @@
                         <h4>M-Pesa</h4>
                         <div class="donate-number">
                             <span id="mpesa-number1">+254702037855</span>
-                            <button class="copy-btn" onclick="copyNumber('mpesa-number1')">Copy</button>
+                            <button class="copy-btn" onclick="copyNumber('mpesa-number1', 'copy-feedback-mpesa')">Copy</button>
                         </div>
+                        <div id="copy-feedback-mpesa" class="copy-feedback"></div>
                     </div>
                     <div class="donate-option">
                         <h4>MTN mobile money</h4>
                         <div class="donate-number">
                             <span id="mtn-number2">+256777853354</span>
-                            <button class="copy-btn" onclick="copyNumber('mtn-number2')">Copy</button>
+                            <button class="copy-btn" onclick="copyNumber('mtn-number2', 'copy-feedback-mtn')">Copy</button>
                         </div>
+                        <div id="copy-feedback-mtn" class="copy-feedback"></div>
                     </div>
                     <div class="donate-option">
-                        <h4>Equity Account</h4>
+                        <h4>Equity Ugandan Account</h4>
                         <div class="donate-number">
                             <span id="equity-number">1041103542720</span>
-                            <button class="copy-btn" onclick="copyNumber('equity-number')">Copy</button>
+                            <button class="copy-btn" onclick="copyNumber('equity-number', 'copy-feedback-equity')">Copy</button>
                         </div>
+                        <div id="copy-feedback-equity" class="copy-feedback"></div>
                     </div>
                 </div>
-                <div id="copy-feedback" class="copy-feedback"></div>
             </div>
         </div>
     </section>
