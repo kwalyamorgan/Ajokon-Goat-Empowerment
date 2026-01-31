@@ -854,7 +854,7 @@ nav {
 .profile img { 
     width: 200px; 
     height: 250px; 
-    border-radius: 10px; 
+    border-radius: 50%; 
     object-fit: contain; 
     margin-bottom: 1rem; 
     border: 3px solid var(--light-grey); 
