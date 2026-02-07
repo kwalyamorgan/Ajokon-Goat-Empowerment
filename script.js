@@ -1,27 +1,40 @@
 // Page Load Animation
 window.addEventListener('load', () => {
-    setTimeout(() => {
-        const loader = document.getElementById('loader');
-        if (loader) {
-            loader.style.display = 'none';
-        }
-    }, 2000);
+    const loader = document.getElementById('loader');
+    if (loader) {
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            loader.style.pointerEvents = 'none';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }, 2000);
+    }
 });
 
 // Mobile Menu Toggle
 const menuToggle = document.getElementById('mobile-menu');
 const navMenu = document.getElementById('nav-menu');
 
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking a link
-document.querySelectorAll('#nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
     });
-});
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+        }
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+}
 
 // Mobile touch enhancements
 if ('ontouchstart' in window) {
@@ -48,10 +61,12 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 document.querySelectorAll('.card, .profile, .step, .donate-card, .section-title, .about-content, .model-description, .impl-item, .impact-card, .overview-card, .project-card, .testimonial-card, .news-card, .partner-card').forEach(el => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
-    el.style.transition = "all 0.6s ease-out";
-    observer.observe(el);
+    if (el) {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.6s ease-out";
+        observer.observe(el);
+    }
 });
 
 // Donate via M-Pesa
@@ -130,7 +145,9 @@ const counterObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const counters = entry.target.querySelectorAll('.impact-number');
             counters.forEach(counter => {
-                animateCounter(counter);
+                if (counter.getAttribute('data-target')) {
+                    animateCounter(counter);
+                }
             });
             counterObserver.unobserve(entry.target);
         }
@@ -147,7 +164,9 @@ const ctaCounterObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             const counters = entry.target.querySelectorAll('.cta-stat .stat-number');
             counters.forEach(counter => {
-                animateCounter(counter);
+                if (counter.getAttribute('data-target')) {
+                    animateCounter(counter);
+                }
             });
             ctaCounterObserver.unobserve(entry.target);
         }
@@ -161,22 +180,31 @@ document.querySelectorAll('.cta-section').forEach(section => {
 function animateCounter(element) {
     const target = parseInt(element.getAttribute('data-target'));
     const duration = 2000; // 2 seconds
-    const step = target / (duration / 16); // 60fps
-    let current = 0;
+    const start = performance.now();
+    const startValue = 0;
 
-    const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-            element.textContent = target;
-            clearInterval(timer);
+    function update(currentTime) {
+        const elapsed = currentTime - start;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = Math.floor(startValue + (target - startValue) * easeOutQuart);
+
+        element.textContent = current;
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
         } else {
-            element.textContent = Math.floor(current);
+            element.textContent = target;
         }
-    }, 16);
+    }
+
+    requestAnimationFrame(update);
 }
 
 // Newsletter Form Handler
-document.addEventListener('DOMContentLoaded', () => {
+function initNewsletterForm() {
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', (e) => {
@@ -189,4 +217,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
+}
+
+// Initialize newsletter form
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNewsletterForm);
+} else {
+    initNewsletterForm();
+}
