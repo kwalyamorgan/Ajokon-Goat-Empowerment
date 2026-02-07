@@ -1,179 +1,192 @@
-// script.js - Complementary JavaScript for TailorSmart Website
-
-// Hide loading screen on page load
-window.addEventListener('load', function() {
-    const loading = document.getElementById('loading');
-    if (loading) {
-        setTimeout(() => {
-            loading.style.display = 'none';
-        }, 500); // Small delay to ensure smooth transition
-    }
+// Page Load Animation
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const loader = document.getElementById('loader');
+        if (loader) {
+            loader.style.display = 'none';
+        }
+    }, 2000);
 });
 
-// Copy phone number to clipboard
-function copyNumber() {
-    const phoneNumber = document.getElementById('phone-number').textContent;
-    navigator.clipboard.writeText(phoneNumber).then(function() {
-        // Show feedback
-        const copyBtn = document.getElementById('copy-btn');
-        const originalText = copyBtn.innerHTML;
-        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        copyBtn.style.color = '#28a745';
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('mobile-menu');
+const navMenu = document.getElementById('nav-menu');
 
-        // Reset after 2 seconds
-        setTimeout(() => {
-            copyBtn.innerHTML = originalText;
-            copyBtn.style.color = '';
-        }, 2000);
-    }).catch(function(err) {
-        console.error('Failed to copy: ', err);
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = phoneNumber;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
 
-        const copyBtn = document.getElementById('copy-btn');
-        const originalText = copyBtn.innerHTML;
-        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        copyBtn.style.color = '#28a745';
+// Close mobile menu when clicking a link
+document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+    });
+});
 
-        setTimeout(() => {
-            copyBtn.innerHTML = originalText;
-            copyBtn.style.color = '';
-        }, 2000);
+// Mobile touch enhancements
+if ('ontouchstart' in window) {
+    // Add touch feedback for interactive elements
+    document.querySelectorAll('.card, .impact-card, .btn-primary, .btn-secondary, .copy-btn, .overview-card').forEach(el => {
+        el.addEventListener('touchstart', () => {
+            el.style.transform = 'scale(0.98)';
+        });
+        el.addEventListener('touchend', () => {
+            el.style.transform = '';
+        });
     });
 }
 
-// Mobile menu toggle
-function toggleMobileMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    const hamburger = document.querySelector('.hamburger');
-
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active');
-}
-
-// Close mobile menu when clicking outside or on a link
-document.addEventListener('click', function(event) {
-    const navLinks = document.querySelector('.nav-links');
-    const hamburger = document.querySelector('.hamburger');
-
-    if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
-    }
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 80; // Account for fixed navbar
-            const elementPosition = target.offsetTop;
-            const offsetPosition = elementPosition - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-
-            // Close mobile menu after clicking a link
-            const navLinks = document.querySelector('.nav-links');
-            const hamburger = document.querySelector('.hamburger');
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
+// Enhanced reveal animation on scroll
+const observerOptions = { threshold: 0.1 };
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
         }
     });
+}, observerOptions);
+
+document.querySelectorAll('.card, .profile, .step, .donate-card, .section-title, .about-content, .model-description, .impl-item, .impact-card, .overview-card, .project-card, .testimonial-card, .news-card, .partner-card').forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(30px)";
+    el.style.transition = "all 0.6s ease-out";
+    observer.observe(el);
 });
 
-// Gallery modal functionality (if needed)
-function openGalleryModal(src, alt) {
-    // Create modal if it doesn't exist
-    let modal = document.querySelector('.gallery-modal');
-    if (!modal) {
-        modal = document.createElement('div');
-        modal.className = 'gallery-modal';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <img src="" alt="" style="max-width: 100%; max-height: 80vh;">
-            </div>
-        `;
-        document.body.appendChild(modal);
-
-        // Close modal functionality
-        modal.querySelector('.close-modal').addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    }
-
-    modal.querySelector('img').src = src;
-    modal.querySelector('img').alt = alt;
-    modal.style.display = 'block';
+// Donate via M-Pesa
+function copyNumber(id, feedbackId) {
+    const number = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(number).then(() => {
+        const feedback = document.getElementById(feedbackId);
+        feedback.textContent = '✅ Copied to clipboard!';
+        feedback.classList.add('show');
+        setTimeout(() => {
+            feedback.classList.remove('show');
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+        alert('Failed to copy number. Please copy manually.');
+    });
 }
 
-// Add event listeners to gallery items
-document.addEventListener('DOMContentLoaded', function() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const src = this.getAttribute('data-src');
-            const alt = this.querySelector('img').alt;
-            openGalleryModal(src, alt);
-        });
+// Floating Animation for Card Icons
+document.querySelectorAll('.card i').forEach(icon => {
+    icon.style.animation = 'float 3s ease-in-out infinite';
+});
+
+// Pulse Effect on Buttons
+document.querySelectorAll('.btn-primary, .btn-secondary, .copy-btn').forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+        btn.style.animation = 'pulse 1s infinite';
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.animation = '';
     });
 });
 
-// Add CSS for modal
-const style = document.createElement('style');
-style.textContent = `
-    /* Gallery modal styles */
-    .gallery-modal {
-        display: none;
-        position: fixed;
-        z-index: 10000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-    }
+// Staggered Reveal for Grid Items
+const gridObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0) scale(1)";
+            }, index * 200);
+        }
+    });
+}, { threshold: 0.1 });
 
-    .modal-content {
-        position: relative;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
+document.querySelectorAll('.grid .card').forEach(card => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(50px) scale(0.8)";
+    card.style.transition = "all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+    gridObserver.observe(card);
+});
 
-    .close-modal {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        color: white;
-        font-size: 40px;
-        font-weight: bold;
-        cursor: pointer;
-        z-index: 10001;
-    }
+// Hover Animation for Navigation Links
+document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        link.style.transform = 'scale(1.1) translateY(-2px)';
+        link.style.transition = 'all 0.3s ease';
+    });
+    link.addEventListener('mouseleave', () => {
+        link.style.transform = 'scale(1) translateY(0)';
+    });
+});
 
-    .close-modal:hover {
-        color: #bbb;
+// Parallax Effect for Hero Section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
     }
-`;
-document.head.appendChild(style);
+});
+
+// Animated Counters for Impact Section
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll('.impact-number');
+            counters.forEach(counter => {
+                animateCounter(counter);
+            });
+            counterObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.impact-section').forEach(section => {
+    counterObserver.observe(section);
+});
+
+// Animated Counters for CTA Section
+const ctaCounterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll('.cta-stat .stat-number');
+            counters.forEach(counter => {
+                animateCounter(counter);
+            });
+            ctaCounterObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.cta-section').forEach(section => {
+    ctaCounterObserver.observe(section);
+});
+
+function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000; // 2 seconds
+    const step = target / (duration / 16); // 60fps
+    let current = 0;
+
+    const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current);
+        }
+    }, 16);
+}
+
+// Newsletter Form Handler
+document.addEventListener('DOMContentLoaded', () => {
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+            if (email) {
+                // Here you would typically send the email to your server
+                alert('Thank you for subscribing! We\'ll keep you updated on our work.');
+                newsletterForm.reset();
+            }
+        });
+    }
+});

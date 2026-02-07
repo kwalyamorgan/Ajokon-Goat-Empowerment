@@ -3,146 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TailorSmart Women Empowerment Initiative | Mukuru Kwa Njenga</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="TailorSmart: Empowering Women in Mukuru Kwa Njenga">
-    <meta property="og:description" content="Socioeconomic empowerment through tailoring skills, business training, and start-up support for vulnerable women.">
-    <meta property="og:image" content="https://yourwebsite.com/images/tailoring-hero.jpg">
-    <meta property="og:url" content="https://yourwebsite.com">
-    <meta property="og:type" content="website">
-
-    <!-- Additional Meta Tags -->
-    <meta name="description" content="TailorSmart Initiative empowers women in Mukuru Kwa Njenga through professional tailoring training, business mentorship, and startup support.">
-    <meta name="keywords" content="women empowerment, tailoring, Mukuru Kwa Njenga, skills training, economic independence">
-    <meta name="author" content="Morgan Kwalya">
+    <title>ACEO | Ajokon Community Empowerment Organization</title>
+    <meta name="description" content="ACEO strengthens household financial security and community resilience in Amuria, Uganda through culturally grounded, asset-based empowerment initiatives.">
+    <meta name="keywords" content="ACEO, Ajokon, community empowerment, Uganda, livestock, financial security, sustainable development">
+    <meta name="author" content="ACEO">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Ajokon Community Empowerment Organization",
+        "url": "https://ajokon.org",
+        "logo": "logo.jpeg",
+        "description": "Strengthening household financial security and community resilience through culturally grounded, asset-based, and community-led empowerment initiatives.",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+254-702-037-855",
+            "contactType": "customer service"
+        }
+    }
+    </script>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="loading-spinner"></div>
+    <div id="loader">
+        <div class="loader-content">
+            <img src="logo.jpeg" alt="ACEO Logo" class="loader-logo">
+            <div class="loader-spinner"></div>
+            <p>Loading...</p>
+        </div>
     </div>
 
-    <!-- Navigation -->
-    <header class="navbar" role="navigation">
-        <div class="container">
-            <a href="index.html" class="logo" aria-label="TailorSmart Initiative Home">
-                <img src="images/logo.png" alt="TailorSmart Initiative" class="logo-img">
-            </a>
-            <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="mission.html">Mission</a></li>
-                    <li><a href="model.html">Our Model</a></li>
-                    <li><a href="impact.html">Impact</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="support.html" class="btn btn-primary">Support Us</a></li>
-                </ul>
-            </nav>
+    <nav>
+        <div class="logo">
+            <img src="logo.jpeg" alt="ACEO Logo" class="logo-img">
+        </div>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="model.html">The Model</a></li>
+            <li><a href="implementation.html">Implementation</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Ajokon Community Empowerment Organization (ACEO)</h1>
+            <p>Strengthening household financial security and community resilience through culturally grounded, asset-based, and community-led empowerment initiatives.</p>
+            <div class="hero-btns">
+                <a href="model.html" class="btn-primary">Explore Our Model</a>
+                <a href="team.html" class="btn-secondary">Meet the Team</a>
+            </div>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1>Empowering Women Through Tailoring</h1>
-                <p class="hero-subtitle">Transforming lives in Mukuru Kwa Njenga with professional skills training, business mentorship, and startup support.</p>
-                <div class="hero-cta">
-                    <a href="mission.html" class="btn btn-secondary">Our Mission</a>
-                    <a href="support.html" class="btn btn-primary">Support Now</a>
-                </div>
-            </div>
-        </section>
+    <section class="slogan-section">
+        <div class="container">
+            <img src="slogan.jpeg" alt="ACEO Slogan" class="slogan-img">
+        </div>
+    </section>
 
-        <!-- Quick Overview -->
-        <section class="section container">
-            <div class="section-header">
-                <h2>Our Three-Pillar Approach</h2>
-                <p class="section-subtitle">Comprehensive empowerment for lasting economic independence</p>
+    <section class="home-overview container">
+        <div class="section-title">
+            <h2>Empowering Communities Through Sustainable Development</h2>
+            <p>Rooted in indigenous practices, ACEO works to build resilient households and communities in Amuria, Uganda.</p>
+        </div>
+        
+        <div class="overview-grid">
+            <div class="overview-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Economic Security</h3>
+                <p>Building financial resilience through asset ownership and community savings.</p>
+                <a href="model.html" class="card-link">Learn More</a>
             </div>
-            <div class="overview-grid">
-                <div class="overview-card">
-                    <i class="icon fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                    <h3>Professional Training</h3>
-                    <p>Hands-on tailoring skills from expert instructors</p>
-                    <a href="model.html" class="btn btn-outline">View Details</a>
+            <div class="overview-card">
+                <i class="fas fa-users"></i>
+                <h3>Community Impact</h3>
+                <p>500+ families empowered with sustainable livelihoods and support networks.</p>
+                <a href="impact.html" class="card-link">See Our Impact</a>
+            </div>
+            <div class="overview-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Sustainable Practices</h3>
+                <p>Responsible livestock management aligned with UN Sustainable Development Goals.</p>
+                <a href="about.html" class="card-link">Our Story</a>
+            </div>
+        </div>
+    <section class="featured-projects container">
+        <div class="section-title">
+            <h2>Featured Projects</h2>
+            <p>Our flagship initiatives making a real difference in communities</p>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="1.jpeg" alt="AGEP Project">
+                    <div class="project-overlay">
+                        <h4>Ajokon Goat Empowerment Project</h4>
+                        <p>Rotational livestock sharing for sustainable livelihoods</p>
+                    </div>
                 </div>
-                <div class="overview-card">
-                    <i class="icon fa-solid fa-briefcase" aria-hidden="true"></i>
-                    <h3>Business Mentorship</h3>
-                    <p>Entrepreneurship guidance and market connections</p>
-                    <a href="model.html" class="btn btn-outline">View Details</a>
-                </div>
-                <div class="overview-card">
-                    <i class="icon fa-solid fa-toolbox" aria-hidden="true"></i>
-                    <h3>Startup Equipment</h3>
-                    <p>Complete sewing machines and business supplies</p>
-                    <a href="model.html" class="btn btn-outline">View Details</a>
+                <div class="project-content">
+                    <h3>AGEP - Building Financial Security</h3>
+                    <p>Our flagship project uses traditional Ajokon practices enhanced with modern accountability mechanisms to provide families with productive assets and financial resilience.</p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Families</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">1200+</span>
+                            <span class="stat-label">Goats</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">85%</span>
+                            <span class="stat-label">Success Rate</span>
+                        </div>
+                    </div>
+                    <a href="model.html" class="project-link">Learn More About AGEP</a>
                 </div>
             </div>
-        </section>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="4.jpeg" alt="Community Training">
+                    <div class="project-overlay">
+                        <h4>Community Capacity Building</h4>
+                        <p>Training and education for sustainable development</p>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Empowering Through Knowledge</h3>
+                    <p>We provide comprehensive training in livestock management, financial literacy, and community governance to ensure long-term success and sustainability.</p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span class="stat-number">300+</span>
+                            <span class="stat-label">Trained</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">Communities</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Years</span>
+                        </div>
+                    </div>
+                    <a href="implementation.html" class="project-link">See Implementation</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Call to Action -->
-        <section class="section section-cta">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>Join Our Mission</h2>
-                    <p>Help us create sustainable change in Mukuru Kwa Njenga</p>
-                    <div class="cta-buttons">
-                        <a href="support.html" class="btn btn-primary btn-large">Make a Donation</a>
-                        <a href="impact.html" class="btn btn-secondary btn-large">See Results</a>
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Voices from the Community</h2>
+                <p>Hear from the families and communities we've helped</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As CEO of ACEO, I'm proud to lead an organization that honors traditional wisdom while creating sustainable pathways to prosperity. The Ajokon model proves that cultural heritage and modern development can work hand in hand."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="lydia.jpeg" alt="Lydia Arime Atango">
+                        <div>
+                            <h4>Lydia Arime Atango</h4>
+                            <p>CEO & Founder, ACEO</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Investing in ACEO means investing in real, sustainable change. Their culturally-grounded approach ensures that development initiatives are not just effective, but also respectful and long-lasting."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="faith.jpeg" alt="Keza Faith Liana">
+                        <div>
+                            <h4>Keza Faith Liana</h4>
+                            <p>Project Partner & Investor</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The goat empowerment program has transformed our household. We now have a reliable source of income, better nutrition for our children, and a safety net that gives us hope for the future."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Community Member</h4>
+                            <p>AGEP Beneficiary</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <section class="cta-section">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-branding">
-                    <h3>TailorSmart Women Empowerment Initiative</h3>
-                    <p>Building sustainable livelihoods through skills and empowerment</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="mission.html">Our Mission</a></li>
-                        <li><a href="model.html">Our Model</a></li>
-                        <li><a href="impact.html">Impact</a></li>
-                        <li><a href="support.html">Support Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Get In Touch</h4>
-                    <p><i class="fas fa-envelope" aria-hidden="true"></i> kwalyamorgan042@gmail.com</p>
-                    <p><i class="fas fa-phone" aria-hidden="true"></i> 0748 052 811</p>
+            <div class="cta-content">
+                <h2>Ready to Make a Difference?</h2>
+                <p>Join us in building resilient communities and sustainable futures. Your support can transform lives and strengthen households across Uganda.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-primary">Get Involved</a>
+                    <a href="contact.html#donate" class="btn-secondary">Make a Donation</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 TailorSmart Women Empowerment Initiative. All rights reserved.</p>
-                <p class="footer-attribution">A USIU-Africa & Mastercard Foundation Scholars Program Project</p>
+            <div class="cta-stats">
+                <div class="cta-stat">
+                    <div class="stat-number" data-target="500">0</div>
+                    <p>Families Empowered</p>
+                </div>
+                <div class="cta-stat">
+                    <div class="stat-number" data-target="1200">0</div>
+                    <p>Goats Distributed</p>
+                </div>
+                <div class="cta-stat">
+                    <div class="stat-number" data-target="15">0</div>
+                    <p>Communities Served</p>
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- Scripts -->
+    <section class="news-section container">
+        <div class="section-title">
+            <h2>Latest Updates</h2>
+            <p>Stay informed about our work and impact</p>
+        </div>
+        
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="3.jpeg" alt="Goat Distribution">
+                </div>
+                <div class="news-content">
+                    <h3>New Goat Distribution Phase Completed</h3>
+                    <p class="news-date">December 2025</p>
+                    <p>Successfully distributed 200 goats to 50 families in the latest AGEP phase, bringing our total to over 1,200 productive assets in circulation.</p>
+                    <a href="impact.html" class="news-link">Read More</a>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="4.jpeg" alt="Training Session">
+                </div>
+                <div class="news-content">
+                    <h3>Community Training Program Expanded</h3>
+                    <p class="news-date">November 2025</p>
+                    <p>Launched advanced livestock management training for 75 community members, focusing on sustainable practices and disease prevention.</p>
+                    <a href="implementation.html" class="news-link">Read More</a>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="7.jpeg" alt="Project Launch">
+                </div>
+                <div class="news-content">
+                    <h3>Official Project Launch Ceremony</h3>
+                    <p class="news-date">October 2025</p>
+                    <p>Celebrated the commencement of our expanded AGEP program with community leaders, marking a new chapter in sustainable development.</p>
+                    <a href="about.html" class="news-link">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Partners</h2>
+                <p>Working together for sustainable community development</p>
+            </div>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Local Communities</h3>
+                    <p>Amuria District communities actively participating in our programs</p>
+                </div>
+                <div class="partner-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Community Leaders</h3>
+                    <p>Traditional and local leaders guiding our cultural approach</p>
+                </div>
+                <div class="partner-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>UN SDG Framework</h3>
+                    <p>Aligned with United Nations Sustainable Development Goals</p>
+                </div>
+                <div class="partner-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Environmental Partners</h3>
+                    <p>Collaborating for sustainable livestock and land management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Connected</h2>
+                <p>Subscribe to our newsletter for updates on our work, success stories, and ways to get involved.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+                <p class="newsletter-note">We respect your privacy and will never share your information.</p>
+            </div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
