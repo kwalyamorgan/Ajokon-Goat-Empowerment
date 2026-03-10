@@ -1,14 +1,22 @@
 // Page Load Animation
+const loaderMountedAt = performance.now();
+
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     if (loader) {
+        const minimumDisplay = 320;
+        const elapsed = performance.now() - loaderMountedAt;
+        const remaining = Math.max(0, minimumDisplay - elapsed);
+
         setTimeout(() => {
-            loader.style.opacity = '0';
+            loader.classList.add('is-hidden');
+            loader.setAttribute('aria-hidden', 'true');
             loader.style.pointerEvents = 'none';
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500);
-        }, 2000);
+
+            window.setTimeout(() => {
+                loader.remove();
+            }, 280);
+        }, remaining);
     }
 });
 
