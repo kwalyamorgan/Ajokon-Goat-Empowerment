@@ -1,0 +1,2 @@
+@import url("./base.css");
+.hero { background-image: linear-gradient(120deg, rgba(31,93,36,.85), rgba(47,125,50,.65)), url('../images/4.jpeg'); }
