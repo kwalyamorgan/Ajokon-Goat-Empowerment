@@ -10,6 +10,12 @@ import stepFiveImage from './imports/images/5.jpeg'
 import stepSixImage from './imports/images/6.jpeg'
 import stepSevenImage from './imports/images/7.jpeg'
 
+const CONTACT_EMAIL = 'info@ajokon.org'
+const WHATSAPP_NUMBER = '254140033310'
+const WHATSAPP_MESSAGE = 'hello i have seen your page on ajokon.org  i would like to know more about aceo'
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
+const EMAIL_SUBJECT = 'Inquiry about ACEO'
+
 const NAV_LINKS = [
   { label: 'Our Model', href: '#model' },
   { label: 'Projects', href: '#projects' },
@@ -761,14 +767,14 @@ function Contact() {
               <div>
                 <div className="text-[#b5830a] text-xs tracking-widest uppercase font-semibold mb-3">Email</div>
                 <div className="space-y-2">
-                  <a href="mailto:info@ajokon.org" className="block text-[#2d6a4f] hover:text-[#1b4332] font-medium transition-colors">info@ajokon.org</a>
-                  <a href="mailto:support@ajokon.org" className="block text-[#2d6a4f] hover:text-[#1b4332] font-medium transition-colors">support@ajokon.org</a>
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="block text-[#2d6a4f] hover:text-[#1b4332] font-medium transition-colors">{CONTACT_EMAIL}</a>
+                  <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(EMAIL_SUBJECT)}`} className="block text-[#2d6a4f] hover:text-[#1b4332] font-medium transition-colors">Send an email</a>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-6">
                 <div>
                   <div className="text-[#b5830a] text-xs tracking-widest uppercase font-semibold mb-3">Phone — Kenya</div>
-                  <div className="text-[#1b4332] font-medium">+254 140 033 310</div>
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="text-[#1b4332] font-medium hover:text-[#2d6a4f] transition-colors">+254 140 033 310</a>
                 </div>
                 <div>
                   <div className="text-[#b5830a] text-xs tracking-widest uppercase font-semibold mb-3">Phone — Uganda</div>
@@ -782,28 +788,66 @@ function Contact() {
             <p className="text-[#6b4226]/75 text-sm mb-6">
               Subscribe to the ACEO newsletter for updates about our projects, community success stories, upcoming initiatives, and opportunities to get involved.
             </p>
-            <form className="space-y-4" onSubmit={e => e.preventDefault()}>
+            <form
+              className="space-y-4"
+              onSubmit={e => {
+                e.preventDefault()
+                const form = e.currentTarget
+                const formData = new FormData(form)
+                const name = String(formData.get('name') ?? '').trim()
+                const email = String(formData.get('email') ?? '').trim()
+                const message = String(formData.get('message') ?? '').trim()
+                const body = [
+                  name ? `Name: ${name}` : '',
+                  email ? `Email: ${email}` : '',
+                  message ? `Message: ${message}` : '',
+                ].filter(Boolean).join('\n\n')
+                const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(EMAIL_SUBJECT)}&body=${encodeURIComponent(body || WHATSAPP_MESSAGE)}`
+                window.location.href = mailtoLink
+              }}
+            >
               <div>
                 <label className="text-[#1b4332] text-xs tracking-wide uppercase font-semibold block mb-2">Name</label>
-                <input type="text" className="w-full border border-[#2d6a4f]/20 focus:border-[#2d6a4f] outline-none px-4 py-3 text-sm bg-[#fdf8f0] text-[#1c1917] transition-colors" placeholder="Your full name" />
+                <input name="name" type="text" className="w-full border border-[#2d6a4f]/20 focus:border-[#2d6a4f] outline-none px-4 py-3 text-sm bg-[#fdf8f0] text-[#1c1917] transition-colors" placeholder="Your full name" />
               </div>
               <div>
                 <label className="text-[#1b4332] text-xs tracking-wide uppercase font-semibold block mb-2">Email</label>
-                <input type="email" className="w-full border border-[#2d6a4f]/20 focus:border-[#2d6a4f] outline-none px-4 py-3 text-sm bg-[#fdf8f0] text-[#1c1917] transition-colors" placeholder="your@email.com" />
+                <input name="email" type="email" className="w-full border border-[#2d6a4f]/20 focus:border-[#2d6a4f] outline-none px-4 py-3 text-sm bg-[#fdf8f0] text-[#1c1917] transition-colors" placeholder="your@email.com" />
               </div>
               <div>
                 <label className="text-[#1b4332] text-xs tracking-wide uppercase font-semibold block mb-2">Message (optional)</label>
-                <textarea rows={4} className="w-full border border-[#2d6a4f]/20 focus:border-[#2d6a4f] outline-none px-4 py-3 text-sm bg-[#fdf8f0] text-[#1c1917] transition-colors resize-none" placeholder="How would you like to get involved?" />
+                <textarea name="message" rows={4} className="w-full border border-[#2d6a4f]/20 focus:border-[#2d6a4f] outline-none px-4 py-3 text-sm bg-[#fdf8f0] text-[#1c1917] transition-colors resize-none" placeholder="How would you like to get involved?" />
               </div>
-              <button type="submit" className="w-full bg-[#2d6a4f] hover:bg-[#1b4332] text-[#d8f3dc] font-semibold py-4 text-sm tracking-wide transition-colors">
-                Subscribe & Send Message
-              </button>
+              <div className="grid sm:grid-cols-2 gap-3">
+                <button type="submit" className="w-full bg-[#2d6a4f] hover:bg-[#1b4332] text-[#d8f3dc] font-semibold py-4 text-sm tracking-wide transition-colors">
+                  Send Email
+                </button>
+                <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="w-full inline-flex items-center justify-center bg-[#25d366] hover:bg-[#1fb457] text-white font-semibold py-4 text-sm tracking-wide transition-colors">
+                  WhatsApp Us
+                </a>
+              </div>
             </form>
             <p className="text-[#6b4226]/50 text-xs mt-4">We respect your privacy and will never share your information without your consent.</p>
           </div>
         </div>
       </div>
     </section>
+  )
+}
+
+function FloatingWhatsAppButton() {
+  return (
+    <a
+      href={WHATSAPP_LINK}
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Chat with ACEO on WhatsApp"
+      className="fixed bottom-6 right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25d366] text-white shadow-2xl shadow-black/30 transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/80"
+    >
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.52 3.48A11.79 11.79 0 0 0 12.05 0C5.4 0 .01 5.37.01 11.99c0 2.12.55 4.19 1.58 6l-1.68 6.14 6.3-1.65a12 12 0 0 0 5.84 1.49h.01c6.65 0 12.04-5.37 12.04-11.99 0-3.2-1.25-6.2-3.58-8.5Zm-8.47 18.4a9.91 9.91 0 0 1-5.06-1.39l-.36-.21-3.74.98 1-3.64-.23-.38a9.84 9.84 0 0 1-1.52-5.24c0-5.45 4.43-9.88 9.89-9.88a9.82 9.82 0 0 1 6.98 2.89 9.83 9.83 0 0 1 2.89 6.98c0 5.45-4.43 9.88-9.85 9.88Zm5.68-7.76c-.31-.15-1.82-.9-2.11-1.01-.28-.11-.49-.15-.7.15-.21.31-.8 1.01-.98 1.22-.18.21-.36.24-.67.08-.31-.15-1.31-.48-2.5-1.54-.93-.83-1.56-1.84-1.74-2.15-.18-.31-.02-.47.13-.62.13-.13.31-.36.46-.54.15-.18.2-.31.31-.52.1-.21.05-.39-.02-.54-.08-.15-.7-1.69-.96-2.31-.25-.6-.5-.52-.7-.53l-.6-.01c-.21 0-.54.08-.82.39-.28.31-1.06 1.03-1.06 2.51s1.09 2.91 1.25 3.12c.15.21 2.1 3.21 5.09 4.5.71.31 1.26.49 1.69.63.71.23 1.36.2 1.88.12.57-.09 1.82-.74 2.08-1.46.26-.72.26-1.34.18-1.46-.08-.13-.28-.21-.59-.36Z" />
+      </svg>
+    </a>
   )
 }
 
@@ -872,6 +916,7 @@ export default function App() {
       <Donate />
       <Contact />
       <Footer />
+      <FloatingWhatsAppButton />
     </div>
   )
 }
