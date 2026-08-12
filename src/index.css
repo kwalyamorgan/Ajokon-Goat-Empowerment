@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-green-forest: #2d6a4f;
+  --color-green-dark: #1b4332;
+  --color-green-deep: #0f2d1c;
+  --color-green-mid: #40916c;
+  --color-green-light: #74c69d;
+  --color-green-pale: #d8f3dc;
+  --color-amber: #b5830a;
+  --color-amber-light: #e9a41a;
+  --color-amber-pale: #fef3c7;
+  --color-cream: #fdf8f0;
+  --color-parchment: #f5ede0;
+  --color-bark: #6b4226;
+  --color-earth: #92674a;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Work Sans', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #fdf8f0;
+  color: #1c1917;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.scrollbar-show::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-show::-webkit-scrollbar-thumb {
+  background: #2d6a4f;
+  border-radius: 2px;
+}
