@@ -1,4 +1,12 @@
 import { useState } from 'react'
+import logoImage from './imports/images/logo.jpeg'
+import stepOneImage from './imports/images/1.jpeg'
+import stepTwoImage from './imports/images/2.jpeg'
+import stepThreeImage from './imports/images/3.jpeg'
+import stepFourImage from './imports/images/4.jpeg'
+import stepFiveImage from './imports/images/5.jpeg'
+import stepSixImage from './imports/images/6.jpeg'
+import stepSevenImage from './imports/images/7.jpeg'
 
 const NAV_LINKS = [
   { label: 'Our Model', href: '#model' },
@@ -30,8 +38,13 @@ function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1b4332]/95 backdrop-blur-sm border-b border-[#2d6a4f]/40">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="#" className="flex flex-col leading-tight">
-          <span style={{ fontFamily: 'Fraunces, Georgia, serif' }} className="text-[#74c69d] text-lg font-semibold tracking-wide">ACEO</span>
-          <span className="text-[#d8f3dc]/60 text-[10px] tracking-widest uppercase">Ajokon Community Empowerment</span>
+          <div className="flex items-center gap-3">
+            <img src={logoImage} alt="ACEO logo" className="h-9 w-9 rounded-full object-cover ring-1 ring-[#74c69d]/30" />
+            <div className="flex flex-col leading-tight">
+              <span style={{ fontFamily: 'Fraunces, Georgia, serif' }} className="text-[#74c69d] text-lg font-semibold tracking-wide">ACEO</span>
+              <span className="text-[#d8f3dc]/60 text-[10px] tracking-widest uppercase">Ajokon Community Empowerment</span>
+            </div>
+          </div>
         </a>
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map(l => (
@@ -420,13 +433,13 @@ function SavingsCircle() {
 
 function Implementation() {
   const steps = [
-    { n: 1, title: 'Identification of Beneficiaries', body: 'Potential beneficiaries are identified and assessed according to established eligibility criteria. The process prioritizes households that can responsibly manage livestock and actively participate in the program.', img: IMAGES.identification, alt: 'Group of people standing together in a community' },
-    { n: 2, title: 'Formation of the Beneficiary Leadership Committee', body: 'Participating beneficiaries establish a leadership committee responsible for supporting coordination, communication, accountability, and cooperation among members.', img: IMAGES.committee, alt: 'People collaborating at a laptop' },
-    { n: 3, title: 'Procurement, Treatment, and Identification of Goats', body: 'Goats are procured and undergo appropriate health checks and treatment before distribution. Animals are identified and tagged to support monitoring and accountability.', img: IMAGES.procurement, alt: 'Animal in rural setting near a building' },
-    { n: 4, title: 'Beneficiary Training', body: 'Beneficiaries receive practical training covering livestock management, animal health, disease prevention, feeding, housing, breeding, record keeping, and basic veterinary practices.', img: IMAGES.beneficiaryTraining, alt: 'Woman working in agricultural field' },
-    { n: 5, title: 'Distribution of Goats', body: 'Goats are distributed to approved beneficiary households according to the program\'s distribution plan and formal participation agreements.', img: IMAGES.distribution, alt: 'Community members walking together' },
-    { n: 6, title: 'Community Leadership and Cooperation', body: 'The chairperson and beneficiary leadership committee encourage cooperation among participating households and help ensure that members understand and fulfill their responsibilities.', img: IMAGES.leadership, alt: 'Woman smiling in community setting' },
-    { n: 7, title: 'Official Project Commencement', body: 'Following distribution and completion of the required preparations, the project officially commences. Monitoring, community support, asset rotation, savings activities, and capacity-building continue throughout implementation.', img: IMAGES.launch, alt: 'Peaceful village landscape with stream' },
+    { n: 1, title: 'Identification of Beneficiaries', body: 'Potential beneficiaries are identified and assessed according to established eligibility criteria. The process seeks to prioritize households that can responsibly manage the livestock and actively participate in the program.', img: stepOneImage, alt: 'Community members gathered for beneficiary identification' },
+    { n: 2, title: 'Formation of the Beneficiary Leadership Committee', body: 'Participating beneficiaries establish a leadership committee responsible for supporting coordination, communication, accountability, and cooperation among members.', img: stepTwoImage, alt: 'Community leaders working together' },
+    { n: 3, title: 'Procurement, Treatment, and Identification of Goats', body: 'Goats are procured and undergo appropriate health checks and treatment before distribution. Animals are identified and tagged to support monitoring and accountability.', img: stepThreeImage, alt: 'Goats prepared for distribution' },
+    { n: 4, title: 'Beneficiary Training', body: 'Beneficiaries are brought together for practical training covering livestock management, animal health, disease prevention, feeding, housing, breeding, record keeping, and basic veterinary practices.', img: stepFourImage, alt: 'Beneficiaries in a training session' },
+    { n: 5, title: 'Distribution of Goats', body: 'Goats are distributed to approved beneficiary households according to the program\'s distribution plan and formal participation agreements.', img: stepFiveImage, alt: 'Goats being distributed to households' },
+    { n: 6, title: 'Community Leadership and Cooperation', body: 'The chairperson and beneficiary leadership committee encourage cooperation among participating households and help ensure that members understand and fulfill their responsibilities.', img: stepSixImage, alt: 'Community leadership meeting' },
+    { n: 7, title: 'Official Project Commencement', body: 'Following distribution and completion of the required preparations, the project officially commences. Monitoring, community support, asset rotation, savings activities, and capacity-building continue throughout implementation.', img: stepSevenImage, alt: 'Official project launch gathering' },
   ]
   return (
     <section className="bg-[#f5ede0] py-24">
