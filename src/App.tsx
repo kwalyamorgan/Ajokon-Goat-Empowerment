@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import logoImage from './imports/images/logo.jpeg'
+import lydiaImage from './imports/images/lydia.jpeg'
+import kezaImage from './imports/images/faith.jpeg'
 import stepOneImage from './imports/images/1.jpeg'
 import stepTwoImage from './imports/images/2.jpeg'
 import stepThreeImage from './imports/images/3.jpeg'
@@ -546,13 +548,11 @@ function Team() {
         </div>
         <div className="grid md:grid-cols-2 gap-px bg-[#2d6a4f]/15 max-w-4xl mx-auto">
           {[
-            { name: 'Lydia Arime Atango', role: 'CEO & Founder', bio: 'Lydia provides strategic leadership for ACEO and champions an approach to development that respects indigenous knowledge while creating practical pathways toward sustainable livelihoods and community resilience.', img: IMAGES.lydia },
-            { name: 'Keza Faith Liana', role: 'Project Partner & Investor', bio: 'Keza supports ACEO\'s projects through partnership, investment, and collaboration aimed at strengthening the organization\'s ability to deliver sustainable community development initiatives.', img: IMAGES.keza },
+            { name: 'Lydia Arime Atango', role: 'CEO & Founder', bio: 'Lydia provides strategic leadership for ACEO and champions an approach to development that respects indigenous knowledge while creating practical pathways toward sustainable livelihoods and community resilience.', img: lydiaImage },
+            { name: 'Keza Faith Liana', role: 'Project Partner & Investor', bio: 'Keza supports ACEO\'s projects through partnership, investment, and collaboration aimed at strengthening the organization\'s ability to deliver sustainable community development initiatives.', img: kezaImage },
           ].map(m => (
             <div key={m.name} className="bg-white group">
-              <div className="aspect-[4/3] overflow-hidden bg-[#2d6a4f]/10">
-                <img src={m.img} alt={m.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-              </div>
+              <img src={m.img} alt={m.name} className="w-full h-auto block transition-all duration-500" />
               <div className="p-8">
                 <div className="h-px bg-[#2d6a4f]/20 mb-6" />
                 <h3 style={{ fontFamily: 'Fraunces, Georgia, serif' }} className="text-2xl text-[#1b4332] font-medium mb-1">{m.name}</h3>
