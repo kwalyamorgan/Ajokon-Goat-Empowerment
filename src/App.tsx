@@ -10,7 +10,7 @@ import stepFiveImage from './imports/images/5.jpeg'
 import stepSixImage from './imports/images/6.jpeg'
 import stepSevenImage from './imports/images/7.jpeg'
 
-const CONTACT_EMAIL = 'info@ajokon.org'
+const CONTACT_EMAIL = 'atango@ajokon.org'
 const WHATSAPP_NUMBER = '254140033310'
 const WHATSAPP_MESSAGE = 'hello i have seen your page on ajokon.org  i would like to know more about aceo'
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
