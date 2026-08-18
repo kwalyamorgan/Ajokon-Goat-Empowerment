@@ -880,7 +880,7 @@ function Footer() {
             <div className="text-[#74c69d] text-xs tracking-widest uppercase font-semibold mb-4">Contact</div>
             <div className="space-y-2 text-sm text-[#d8f3dc]/55">
               <div>Amuria, Uganda</div>
-              <a href="mailto:info@ajokon.org" className="block hover:text-[#74c69d] transition-colors">info@ajokon.org</a>
+              <a href="mailto:atango@ajokon.org" className="block hover:text-[#74c69d] transition-colors">atango@ajokon.org</a>
               <div>+256 777 853 354</div>
               <div>+254 140 033 310</div>
             </div>
